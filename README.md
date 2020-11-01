@@ -1,10 +1,12 @@
 > 你好，欢迎来到阿里云83行代码大赛，以下是大赛4个关卡代码
 >
 > [官方大赛页地址，戳我进入](https://college.devops.aliyun.com/)
+>
+> [Java开发手册-嵩山版，戳我下载](https://developer.aliyun.com/topic/java20)
 
 
 
-**[重构视频讲解地址，戳我进入]()**
+**[重构视频详细讲解地址，戳我进入，三连感谢](https://github.com/it235/code83/tree/main)**
 
 
 
