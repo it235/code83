@@ -1,28 +1,33 @@
 package weathermachine;
 
-public class WeatherData {
-    private SeedingMachine seedingMachine;
-    private ReapingMachine reapingMachine;
-    private WateringMachine wateringMachine;
+import java.util.List;
 
-    public WeatherData(SeedingMachine seedingMachine, ReapingMachine reapingMachine, WateringMachine wateringMachine)
-    {
-        this.seedingMachine = seedingMachine;
-        this.reapingMachine = reapingMachine;
-        this.wateringMachine = wateringMachine;
+/**
+ * 天气数据类
+ * @author Ron
+ */
+public class WeatherData {
+
+    //订阅者列表
+    List<BaseMachine> machineList = null;
+
+
+    public WeatherData(List<BaseMachine> machineList){
+        this.machineList = machineList;
     }
 
-    public void measurementsChanged(int temp, int humidity, int windPower)
-    {
-        if (temp > 5)
-        {
-            seedingMachine.start();
-
-            if (humidity > 65)
-                reapingMachine.start();
+    /**
+     *
+     * @param temp 温度
+     * @param humidity 湿度
+     * @param windPower 风
+     */
+    public void measurementsChanged(int temp, int humidity, int windPower) {
+        //你需要将你的情况告诉每一个关注你的用户
+        //一堆机器在看着你，你做的每一步操作都要告诉给一个订阅列表
+        for (BaseMachine baseMachine : machineList) {
+            baseMachine.watch(temp,humidity,windPower);
         }
 
-        if (temp > 10 && humidity < 55 && windPower < 4)
-            wateringMachine.start();
     }
 }
